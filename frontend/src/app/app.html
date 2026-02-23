@@ -1,0 +1,29 @@
+<div class="min-h-screen bg-gray-50 flex">
+  <aside class="w-64 bg-indigo-700 text-white min-h-screen flex flex-col shadow-lg select-none">
+      <div class="p-6 text-center border-b border-indigo-600">
+          <h1 class="text-2xl font-bold tracking-wider">BIBLIOTECA<br><span class="text-indigo-300 text-sm">Panel CRUD</span></h1>
+      </div>
+      <nav class="flex-1 mt-6">
+          <a routerLink="/autores" routerLinkActive="bg-indigo-800 border-l-4 border-white" class="block py-4 px-6 hover:bg-indigo-600 transition duration-200">
+              <span class="font-medium">Autores</span>
+          </a>
+          <a routerLink="/categorias" routerLinkActive="bg-indigo-800 border-l-4 border-white" class="block py-4 px-6 hover:bg-indigo-600 transition duration-200">
+              <span class="font-medium">Categorías</span>
+          </a>
+          <a routerLink="/libros" routerLinkActive="bg-indigo-800 border-l-4 border-white" class="block py-4 px-6 hover:bg-indigo-600 transition duration-200">
+              <span class="font-medium">Libros</span>
+          </a>
+          <a routerLink="/miembros" routerLinkActive="bg-indigo-800 border-l-4 border-white" class="block py-4 px-6 hover:bg-indigo-600 transition duration-200">
+              <span class="font-medium">Miembros</span>
+          </a>
+          <a routerLink="/prestamos" routerLinkActive="bg-indigo-800 border-l-4 border-white" class="block py-4 px-6 hover:bg-indigo-600 transition duration-200">
+              <span class="font-medium">Préstamos</span>
+          </a>
+      </nav>
+      <div class="p-6 text-sm text-indigo-300 border-t border-indigo-600">&copy; 2026 Admin Panel</div>
+  </aside>
+
+  <main class="flex-1 p-8 overflow-y-auto">
+      <router-outlet></router-outlet>
+  </main>
+</div>
