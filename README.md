@@ -1,6 +1,6 @@
 # 📚 Biblioteca CRUD API
 
-API REST para la gestión de una biblioteca desarrollada con **Node.js**, **Express** y **MongoDB** (Mongoose). Permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre cinco colecciones: autores, categorías, libros, miembros y préstamos.
+API REST y Frontend para la gestión de una biblioteca desarrollada con **Node.js**, **Express**, **MongoDB** y **Angular**. Permite realizar operaciones CRUD sobre cinco colecciones: autores, categorías, libros, miembros y préstamos.
 
 ## 📋 Requisitos Previos
 
@@ -39,47 +39,47 @@ API REST para la gestión de una biblioteca desarrollada con **Node.js**, **Expr
    node seed.js
    ```
 
-5. **Iniciar el servidor**
+5. **Iniciar el servidor (Backend)**
 
    ```bash
    npm start
    ```
 
-   O en modo desarrollo (con reinicio automático usando **nodemon**):
+   O en modo desarrollo:
 
    ```bash
    npm run dev
    ```
 
-   Deberías ver los mensajes: `Conectado a la BD` y `Servidor corriendo en puerto 3000`.
+   Deberías ver: `Conectado a la BD` y `Servidor corriendo en puerto 3000`.
+
+6. **Iniciar el Frontend**
+
+   ```bash
+   cd frontend
+   npm install
+   # Para visualizar la aplicación:
+   ng serve
+   ```
+
+   Por defecto, la aplicación estará disponible en `http://localhost:4200`.
 
 ## 📁 Estructura del Proyecto
 
 ```
 biblioteca-crud/
-├── controllers/         # Lógica de negocio de cada colección
-│   ├── autorController.js
-│   ├── categoriaController.js
-│   ├── libroController.js
-│   ├── miembroController.js
-│   └── prestamoController.js
-├── models/              # Esquemas de Mongoose
-│   ├── Autor.js
-│   ├── Categoria.js
-│   ├── Libro.js
-│   ├── Miembro.js
-│   └── Prestamo.js
-├── routes/              # Definición de rutas de la API
-│   ├── autores.js
-│   ├── categorias.js
-│   ├── libros.js
-│   ├── miembros.js
-│   └── prestamos.js
-├── app.js               # Punto de entrada de la aplicación
-├── seed.js              # Script para poblar la BD con datos iniciales
-├── package.json         # Dependencias y scripts del proyecto
-├── .env                 # Variables de entorno (no se sube al repositorio)
-└── .gitignore           # Archivos ignorados por Git
+├── controllers/         # Lógica de negocio (Backend)
+├── models/              # Esquemas de Mongoose (Backend)
+├── routes/              # Rutas de la API (Backend)
+├── frontend/            # Aplicación Angular (Frontend)
+│   ├── src/             # Código fuente de la interfaz
+│   ├── package.json     # Dependencias del frontend
+│   └── README.md        # Documentación específica del frontend
+├── app.js               # Entrada de la API
+├── seed.js              # Script de carga de datos
+├── package.json         # Dependencias del backend
+├── .env                 # Variables de entorno
+└── .gitignore           # Archivos ignorados
 ```
 
 ## 🔗 Endpoints de la API
@@ -177,17 +177,20 @@ curl -X DELETE http://localhost:3000/api/autores/ID_DEL_AUTOR
 
 ## 🛠️ Tecnologías Utilizadas
 
-| Tecnología | Versión | Descripción                                |
-| ---------- | ------- | ------------------------------------------ |
-| Node.js    | v14+    | Entorno de ejecución de JavaScript         |
-| Express    | ^5.2.1  | Framework web para Node.js                 |
-| Mongoose   | ^9.2.1  | ODM para MongoDB                           |
-| dotenv     | ^17.3.1 | Carga de variables de entorno desde `.env` |
-| nodemon    | ^3.1.11 | Reinicio automático en desarrollo (devDep) |
+| Tecnología  | Versión | Descripción                      |
+| ----------- | ------- | -------------------------------- |
+| Node.js     | v14+    | Entorno de ejecución de JS       |
+| Express     | ^5.2.1  | Framework web (Backend)          |
+| Mongoose    | ^9.2.1  | ODM para MongoDB                 |
+| Angular     | ^21.1.0 | Framework web (Frontend)         |
+| TailwindCSS | ^3.4.19 | Framework UI (Frontend)          |
+| dotenv      | ^17.3.1 | Carga de variables de entorno    |
+| nodemon     | ^3.1.11 | Reinicio automático (Desarrollo) |
 
 ## 📜 Scripts Disponibles
 
-| Comando       | Descripción                                            |
-| ------------- | ------------------------------------------------------ |
-| `npm start`   | Inicia el servidor con `node app.js`                   |
-| `npm run dev` | Inicia el servidor con `nodemon` (reinicio automático) |
+| Comando                   | Descripción                            |
+| ------------------------- | -------------------------------------- |
+| `npm start`               | (Raíz) Inicia el servidor backend      |
+| `npm run dev`             | (Raíz) Backend con reinicio automático |
+| `cd frontend && ng serve` | Inicia el servidor del frontend        |
